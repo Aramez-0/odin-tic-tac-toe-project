@@ -58,6 +58,8 @@ let finish = function(winner) {
         dialogP.textContent = 'Congratulations: X won';
     } else if (winner === 'o') {
         dialogP.textContent = 'congratulations: O won';
+    } else if (winner === 'draw') {
+        dialogP.textContent = 'It was a draw';
     };
     dialog.showModal();
 };
@@ -79,4 +81,23 @@ let win = function() {
     winCondition(2, 5, 8);
     winCondition(0, 4, 8);
     winCondition(2, 4, 6);
+
+    let isDraw = getGameEle.position.every(function(ele) {
+        return ele.classList.contains("X") || ele.classList.contains("O");
+    });
+
+    if (isDraw) {
+        finish('draw');
+    };
 };
+
+let dynamicBackground = function() {
+    let container = document.querySelector("#container");
+    
+    if (visualViewport.height > visualViewport.width) {
+        container.style.backgroundImage = "url(img/plant-8049076_1280.jpg)"
+    } else {
+        container.style.backgroundImage = "url(img/fern-1250903_1280.jpg)"
+    }
+}
+dynamicBackground()

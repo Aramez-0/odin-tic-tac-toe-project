@@ -1,12 +1,15 @@
 html, body {
     margin: 0;
     padding: 0;
-    background: grey;
+}
+
+#container {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 100%;
-    height: 100%;
+    width: 100vw;
+    height: 100vh;
+    background-size: cover;
 }
 
 * {
@@ -43,13 +46,16 @@ html, body {
     left: 39%;
 }
 
-body > p {
+#credit-container {
     position: absolute;
     left: 0%;
     bottom: 0%;
     margin: 5px;
     font-size: 0.8rem;
     color: white;
+}
+#credit-container > p{
+    margin-bottom: 0%;
 }
 a {
     color: white;
