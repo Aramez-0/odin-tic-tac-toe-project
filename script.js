@@ -29,10 +29,10 @@ xTurn = true;
 for (let i = 0; i < getGameEle.position.length; i++) {
     let ele = getGameEle.position[i];
     ele.addEventListener("click", () => {
-        if (xTurn === true) {
+        if (xTurn === true && ele.classList.contains("X") === false && ele.classList.contains("O") === false) {
             player('x', ele);
             xTurn = false;
-        } else if (xTurn === false) {
+        } else if (xTurn === false && ele.classList.contains("X") === false && ele.classList.contains("O") === false) {
             player('o', ele);
             xTurn = true;
         };
@@ -95,9 +95,28 @@ let dynamicBackground = function() {
     let container = document.querySelector("#container");
     
     if (visualViewport.height > visualViewport.width) {
-        container.style.backgroundImage = "url(img/plant-8049076_1280.jpg)"
+        container.setAttribute("class", "length-bg-img");
     } else {
-        container.style.backgroundImage = "url(img/fern-1250903_1280.jpg)"
-    }
-}
-dynamicBackground()
+        container.setAttribute("class", "width-bg-img");
+    };
+
+    window.addEventListener("resize", () => {
+        let container = document.querySelector("#container");
+        
+        if (visualViewport.height > visualViewport.width) {
+            container.setAttribute("class", "length-bg-img");
+        } else {
+            container.setAttribute("class", "width-bg-img");
+        };
+    })
+    
+};
+dynamicBackground();
+
+
+
+
+// name? i don't think players need a name. add it if you feel like it \
+// it should be easy
+
+// maybe add dark mode

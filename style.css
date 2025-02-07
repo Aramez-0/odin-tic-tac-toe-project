@@ -11,7 +11,12 @@ html, body {
     height: 100vh;
     background-size: cover;
 }
-
+.width-bg-img {
+    background-image: url(img/fern-1250903_1280.jpg);
+}
+.length-bg-img {
+    background-image: url(img/plant-8049076_1280.jpg);
+}
 * {
     box-sizing: border-box;
 }
